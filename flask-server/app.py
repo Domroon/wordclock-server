@@ -12,7 +12,9 @@ config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
 
 infos = config['infos']
-data_link = f'{infos["domain_name"]}/{infos["subsite_name"]}/{infos["filename"]}'
+version_folder = f'v{infos["version"].replace('.', '')}'
+data_link = f'{infos["domain_name"]}/{infos["subsite_name"]}/{version_folder }/{infos["filename"]}'
+
 
 @app.route('/')
 def hello_geek():
@@ -22,8 +24,8 @@ def hello_geek():
 def latest_version():
     return config['infos']['version']
 
-@app.route('/data-link')
-def data_link():
+@app.route('/link')
+def link():
     return data_link
 
 if __name__ == "__main__":
