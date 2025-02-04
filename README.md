@@ -7,6 +7,18 @@ https://docs.docker.com/get-started/introduction/build-and-push-first-image/
 - Build and pull the docker-image with the VS-Code Docker extension
 - It could be necessary to start vs-code as root
 
+## Build Docker Image
+
+Do that in the folders where the Dockerfiles are
+
+    docker build -t flask-server:latest .
+    docker build -t fileserver:latest .
+
+## Run Docker Container locally
+
+    docker run -d flask-server
+    docker run -d -p 8080:80 fileserver
+
 ## ToDo
 
 ### v0.2.0
