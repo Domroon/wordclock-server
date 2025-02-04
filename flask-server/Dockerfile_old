@@ -1,0 +1,14 @@
+FROM debian
+
+WORKDIR /wordclock-server
+
+RUN apt update && apt upgrade
+
+RUN apt -y install nginx
+RUN nginx
+RUN apt -y install python3
+RUN apt -y install python3-flask
+
+COPY . .
+
+# CMD ["python3", "-m" , "flask", "run", "--host=0.0.0.0"]
