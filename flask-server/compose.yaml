@@ -1,0 +1,6 @@
+services:
+  wordclock-server:
+    image: domroon/wordclock-server
+    restart: always
+    ports:
+      - '5424:5000'
