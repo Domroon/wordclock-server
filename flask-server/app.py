@@ -13,7 +13,7 @@ config.read(CONFIG_PATH)
 
 infos = config['infos']
 version_folder = f'v{infos["version"].replace('.', '')}'
-data_link = f'{infos["domain_name"]}/{infos["subsite_name"]}/{version_folder }'
+data_link = f'{infos["domain_name"]}/{infos["subsite_name"]}/{version_folder}'
 filenames = ["main.py", "test_1.py", "test_2.py", "requests_test-v020.py"]
 
 
@@ -32,7 +32,7 @@ def link():
 @app.route('/version-info')
 def version_info():
     return {
-        "link": f'{infos["domain_name"]}/{infos["subsite_name"]}/{version_folder }/{infos["filename"]}',
+        "link": data_link,
         "filenames": filenames
     }
 
